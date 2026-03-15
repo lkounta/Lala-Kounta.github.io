@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Lala Kounta — Ocean &amp; Climate Scientist</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #0a2342;
+      --teal:        #1a7a8a;
+      --teal-light:  #e6f4f6;
+      --gold:        #c8963e;
+      --bg:          #f5f6f8;
+      --card:        #ffffff;
+      --text:        #1a1a2e;
+      --muted:       #5a6278;
+      --border:      #dde1e9;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0;
+      background: var(--navy);
+      z-index: 100;
+    }
+    nav .nav-inner {
+      max-width: 1000px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+    .nav-name {
+      color: #fff; font-size: 0.9rem; font-weight: bold;
+      letter-spacing: 0.04em; padding: 1rem 0;
+      font-family: sans-serif;
+    }
+    nav ul { display: flex; list-style: none; gap: 0.2rem; }
+    nav a {
+      display: block; padding: 1rem 1rem;
+      color: rgba(255,255,255,0.72); text-decoration: none;
+      font-family: sans-serif; font-size: 0.8rem;
+      text-transform: uppercase; letter-spacing: 0.09em;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #14496b 100%);
+      color: #fff; padding: 5rem 1.5rem 4rem; text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 100px; padding: 0.3rem 1rem;
+      font-family: sans-serif; font-size: 0.75rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 1.5rem; color: rgba(255,255,255,0.85);
+    }
+    .hero h1 {
+      font-size: 2.8rem; font-weight: normal;
+      letter-spacing: 0.01em; margin-bottom: 0.5rem;
+    }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero .subtitle {
+      font-family: sans-serif; font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 620px; margin: 0 auto 0.5rem;
+    }
+    .hero .affil {
+      font-family: sans-serif; font-size: 0.85rem;
+      color: rgba(255,255,255,0.55); margin-bottom: 2rem;
+    }
+    .hero-links {
+      display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap;
+    }
+    .hero-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.5rem 1.2rem; border-radius: 6px;
+      font-family: sans-serif; font-size: 0.82rem; font-weight: 600;
+      text-decoration: none; transition: opacity 0.2s, transform 0.15s;
+    }
+    .hero-link:hover { opacity: 0.85; transform: translateY(-1px); }
+    .hero-link.primary { background: var(--gold); color: #fff; }
+    .hero-link.outline { border: 1.5px solid rgba(255,255,255,0.5); color: #fff; }
+    .hero-link.cv-btn  { background: rgba(255,255,255,0.15); border: 1.5px solid rgba(255,255,255,0.5); color: #fff; }
+
+    /* ── SECTION ── */
+    .section-wrap {
+      max-width: 1000px; margin: 0 auto; padding: 4.5rem 1.5rem;
+    }
+    .section-wrap + .section-wrap { border-top: 1px solid var(--border); }
+    .alt-bg { background: #fff; }
+
+    .section-label {
+      display: inline-block;
+      font-family: sans-serif; font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--teal); margin-bottom: 0.35rem;
+    }
+    h2 { font-size: 1.9rem; font-weight: normal; color: var(--navy); }
+    .section-desc {
+      margin-top: 0.5rem; color: var(--muted);
+      font-size: 0.95rem; max-width: 680px;
+    }
+    .section-header {
+      margin-bottom: 2.5rem;
+      display: flex; align-items: flex-end;
+      justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .section-header-text { flex: 1; }
+
+    /* Download CV button (in section header) */
+    .dl-cv-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.5rem 1.1rem; border-radius: 6px;
+      background: var(--teal); color: #fff;
+      font-family: sans-serif; font-size: 0.8rem; font-weight: 600;
+      text-decoration: none; white-space: nowrap;
+      transition: opacity 0.2s, transform 0.15s; flex-shrink: 0;
+    }
+    .dl-cv-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .cv-updated {
+      font-family: sans-serif; font-size: 0.72rem; color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* ── ABOUT ── */
+    .about-body { margin-bottom: 2.5rem; }
+    .about-body p {
+      font-size: 1.02rem; line-height: 1.85; color: var(--text);
+    }
+    .about-body p + p { margin-top: 1.1rem; }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .info-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.2rem 1.4rem;
+      display: flex; gap: 0.9rem; align-items: flex-start;
+    }
+    .info-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .info-label {
+      font-family: sans-serif; font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted); margin-bottom: 0.25rem;
+    }
+    .info-body { font-size: 0.88rem; line-height: 1.55; }
+    .info-body a { color: var(--teal); text-decoration: none; }
+    .info-body a:hover { text-decoration: underline; }
+
+    /* ── RESEARCH ── */
+    .projects-list { display: flex; flex-direction: column; gap: 1.6rem; }
+    .project-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 10px 10px 0; padding: 1.5rem 1.7rem;
+    }
+    .project-card.past { border-left-color: #8fa8be; }
+    .project-meta {
+      display: flex; flex-wrap: wrap; gap: 0.45rem;
+      margin-bottom: 0.65rem; align-items: center;
+    }
+    .tag {
+      display: inline-block; font-family: sans-serif;
+      font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.07em;
+      padding: 0.18rem 0.55rem; border-radius: 4px;
+    }
+    .tag.current  { background: var(--teal-light); color: var(--teal); }
+    .tag.past     { background: #eef0f4; color: #6b7280; }
+    .tag.funder   { background: #fdf3e4; color: #a07228; }
+    .tag.role     { background: #eef0f4; color: var(--navy); }
+    .project-year {
+      font-family: sans-serif; font-size: 0.78rem;
+      color: var(--muted); margin-left: auto;
+    }
+    .project-card h3 {
+      font-size: 1.08rem; color: var(--navy);
+      margin-bottom: 0.5rem; font-style: italic;
+    }
+    .project-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── CV ── */
+    .cv-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 3rem;
+    }
+    .cv-block h3 {
+      font-family: sans-serif; font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em; color: var(--teal);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.4rem; margin-bottom: 1.2rem;
+    }
+    .cv-entry {
+      display: grid; grid-template-columns: 76px 1fr;
+      gap: 0.4rem 0.9rem; margin-bottom: 1.1rem; font-size: 0.87rem;
+    }
+    .cv-year {
+      color: var(--gold); font-family: sans-serif;
+      font-weight: 700; font-size: 0.78rem; padding-top: 0.1rem;
+      line-height: 1.4;
+    }
+    .cv-title { font-weight: bold; color: var(--navy); display: block; }
+    .cv-org   { color: var(--muted); display: block; line-height: 1.4; }
+
+    .pub-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+    .pub-list li {
+      font-size: 0.86rem; line-height: 1.65;
+      padding-left: 0.9rem; border-left: 2px solid var(--border);
+    }
+    .pub-list li strong { color: var(--navy); }
+    .pub-list li a {
+      color: var(--teal); text-decoration: none; font-size: 0.8rem;
+    }
+    .pub-list li a:hover { text-decoration: underline; }
+
+    .award-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .award-item {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 1rem; font-size: 0.87rem;
+    }
+    .award-name { color: var(--text); flex: 1; line-height: 1.4; }
+    .award-amt {
+      font-family: sans-serif; font-weight: 700;
+      color: var(--teal); white-space: nowrap; font-size: 0.8rem;
+    }
+
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .skill-pill {
+      background: var(--teal-light); color: var(--teal);
+      border-radius: 100px; padding: 0.22rem 0.75rem;
+      font-family: sans-serif; font-size: 0.78rem; font-weight: 600;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,0.45);
+      text-align: center; padding: 2rem 1rem;
+      font-family: sans-serif; font-size: 0.78rem;
+    }
+    footer a { color: rgba(255,255,255,0.65); text-decoration: none; }
+    footer a:hover { color: #fff; }
+    footer p + p { margin-top: 0.35rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 2rem; }
+      .cv-grid  { grid-template-columns: 1fr; }
+      .project-year { margin-left: 0; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Dr. Lala Kounta</span>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#cv">CV</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-badge">Research Associate &mdash; Michigan State University</div>
+  <h1><em>Dr. Lala</em> Kounta</h1>
+  <p class="subtitle">Ocean &amp; Climate Scientist &nbsp;|&nbsp; Climate Extremes &amp; Solar Radiation Modification</p>
+  <p class="affil">Dept. of Integrative Biology &mdash; Institute for Biodiversity, Ecology, Evolution &amp; Macrosystems</p>
+  <div class="hero-links">
+    <a href="mailto:kountala@msu.edu" class="hero-link primary">&#9993;&nbsp; kountala@msu.edu</a>
+    <a href="files/CV_Dr_Lala_Kounta.pdf" download class="hero-link cv-btn">&#8595;&nbsp; Download CV</a>
+    <a href="https://orcid.org/0000-0002-0239-0212" target="_blank" class="hero-link outline">ORCID</a>
+    <a href="https://www.linkedin.com/in/lala-kounta" target="_blank" class="hero-link outline">LinkedIn</a>
+  </div>
+</header>
+
+
+<!-- ════════════════ ABOUT ════════════════ -->
+<section id="about">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-header-text">
+        <span class="section-label">Who I am</span>
+        <h2>About Me</h2>
+      </div>
+    </div>
+
+    <div class="about-body">
+      <p>
+        My research program is centered on understanding the ocean&rsquo;s circulation and its response to large-scale atmospheric variability. I study abiotic extreme events and their drivers across historical, present, and future climates, and I explore the potential of climate intervention strategies&mdash;such as solar radiation modification and marine cloud brightening&mdash;to mitigate the impacts of global warming and evaluate their effects on natural systems. In all of my disciplinary and interdisciplinary work, I advance understanding of the physical processes underlying climate change across scenarios in order to improve predictions about climate change impacts.
+      </p>
+      <p>
+        I hold a master&rsquo;s degree in Physics and a master&rsquo;s degree in Meteorology, Oceanography, and Land Management, along with dual PhDs in Environmental Sciences (Sorbonne University, Paris) and Physical Oceanography and Climate Sciences (Cheikh Anta Diop University, Dakar). My foundational expertise lies in the dynamics of the Canary Current Upwelling System and the West African Monsoon. Since joining Michigan State University in 2022 as an African Futures Research Leadership Fellow, my work has expanded to global climate change, geoengineering impacts, and interdisciplinary ecology.
+      </p>
+      <p>
+        Looking ahead, I aim to serve as a bridge between world-class Earth System Models and the communities that need robust, decision-relevant information on weather and climate risks&mdash;translating model output and observational datasets into co-designed, actionable indicators that inform adaptation and policy decisions, ultimately supporting global efforts to mitigate climate change and protect biodiversity.
+      </p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="info-card">
+        <span class="info-icon">📍</span>
+        <div>
+          <div class="info-label">Location</div>
+          <div class="info-body">East Lansing, Michigan, USA<br/>288 Farm Lane, MSU</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">🎓</span>
+        <div>
+          <div class="info-label">Education</div>
+          <div class="info-body">
+            PhD Environmental Sciences, Sorbonne Univ. (2019)<br/>
+            PhD Physical Oceanography &amp; Climate, UCAD (2019)<br/>
+            MS Meteorology &amp; Oceanography, UCAD (2013)
+          </div>
+        </div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">🔬</span>
+        <div>
+          <div class="info-label">Research Focus</div>
+          <div class="info-body">Ocean dynamics &middot; climate extremes &middot; solar geoengineering &middot; marine heatwaves &middot; West African upwelling &middot; stakeholder-relevant data products</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">💻</span>
+        <div>
+          <div class="info-label">Technical Skills</div>
+          <div class="info-body">Python &middot; R &middot; MATLAB &middot; SQL &middot; CDO &middot; NetCDF &middot; HPC &middot; Cloud Computing &middot; Machine Learning &middot; GIS</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">🌍</span>
+        <div>
+          <div class="info-label">Affiliations</div>
+          <div class="info-body">African Meteorological Society &middot; Society for Women in Marine Science &middot; American Geosciences Union &middot; Assoc. of Climate Change Officers</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">📰</span>
+        <div>
+          <div class="info-label">Media Coverage</div>
+          <div class="info-body"><em>El Pa&iacute;s</em> (2022) &middot; Future Climate for Africa News (2019) &middot; IRD Talents (2017) &middot; African Women feature (2025)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════ RESEARCH ════════════════ -->
+<section id="research" class="alt-bg">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-header-text">
+        <span class="section-label">Projects</span>
+        <h2>My Research</h2>
+        <p class="section-desc">
+          I investigate how large-scale ocean&ndash;atmosphere dynamics and climate intervention strategies shape extreme events, with a focus on translating Earth System Model outputs into actionable, decision-relevant data products for researchers, resource managers, and policymakers across the globe.
+        </p>
+      </div>
+    </div>
+
+    <div class="projects-list">
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="tag current">Current</span>
+          <span class="tag funder">Environmental Defense Fund</span>
+          <span class="tag role">co-Principal Investigator</span>
+          <span class="project-year">2025&ndash;2026 &nbsp;|&nbsp; $264,433</span>
+        </div>
+        <h3>Solar Radiation Modification, Extreme Events &amp; Biotic Interactions</h3>
+        <p>
+          This project asks how solar radiation modification (SRM) will alter the frequency and co-occurrence of multi-variable extreme events and, in turn, affect ecological structure and function. Building on Dr. Kounta&rsquo;s extreme event detection framework, the team develops analysis-ready indicators across temperature, moisture, precipitation, UV, ozone, pH, and dissolved oxygen that inform both the risks and benefits of future mitigation scenarios. Co-investigators include Phoebe Zarnetske, Alisha Shah, Kelly Kasper, and Lifeng Luo.
+        </p>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="tag current">Current</span>
+          <span class="tag funder">World Academy of Sciences / UNESCO</span>
+          <span class="tag role">Principal Investigator</span>
+          <span class="project-year">2024&ndash;present &nbsp;|&nbsp; $68,390</span>
+        </div>
+        <h3>Monitoring the Senegalese Coast for Sustainable Oceans</h3>
+        <p>
+          Led by Dr. Kounta as PI, this UNESCO-TWAS program establishes long-term monitoring of the Senegalese coast to support sustainable ocean management. The program also includes a financial support and mentoring component for top-performing female students in marine sciences at Cheikh Anta Diop University, implemented through IUPA to strengthen gender equity and academic excellence in West Africa.
+        </p>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="tag current">Current</span>
+          <span class="tag funder">National Science Foundation</span>
+          <span class="tag role">Research Scientist</span>
+          <span class="project-year">2023&ndash;present</span>
+        </div>
+        <h3>Potential Ecological Impacts of Climate Intervention via Solar Radiation Modification</h3>
+        <p>
+          Using a big-data approach on CESM output from two SAI scenarios (ARISE-SAI-1.0 and ARISE-SAI-1.5) and a baseline SSP2-4.5, this project quantifies how stratospheric aerosol injection alters marine heatwave (MHW) frequency, maximum intensity, and duration across global marine provinces over historical (1990&ndash;2009), present (2015&ndash;2034), and future (2050&ndash;2069) periods. Results show SAI reduces global average MHW severity but with pronounced regional heterogeneity&mdash;highlighting the need for region-specific impact assessments and equitable governance frameworks.
+        </p>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card past">
+        <div class="project-meta">
+          <span class="tag past">Completed</span>
+          <span class="tag funder">Lenfest Ocean Program</span>
+          <span class="tag role">Key Personnel</span>
+          <span class="project-year">2023&ndash;2024</span>
+        </div>
+        <h3>Inclusive Management of the Cayar and Ufoyaal Kassa-Bandial Marine Protected Areas (Senegal)</h3>
+        <p>
+          Research conducted in partnership with local communities and fisheries stakeholders to inform inclusive, equitable management of two ecologically critical marine protected areas in Senegal. The project produced evidence-based recommendations for conservation planning and governance of these coastal zones.
+        </p>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card past">
+        <div class="project-meta">
+          <span class="tag past">Completed</span>
+          <span class="tag funder">IBEEM, Michigan State University</span>
+          <span class="tag role">co-Principal Investigator</span>
+          <span class="project-year">2022&ndash;2023 &nbsp;|&nbsp; $75,000</span>
+        </div>
+        <h3>Environmental Variability and Life Histories of Global Ecological Communities</h3>
+        <p>
+          This interdisciplinary project characterizes how interannual and seasonal temperature variability shapes the life histories of the world&rsquo;s birds. Results published in <em>Ecology Letters</em> (Youngflesh et al., 2025) show that species experiencing high inter-annual variability tend toward a slower pace of life, while high intra-annual (seasonal) variability produces the opposite effect. Dr. Kounta&rsquo;s climate science and HPC expertise was integral to quantifying appropriate spatiotemporal climate measures.
+        </p>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-card past">
+        <div class="project-meta">
+          <span class="tag past">Completed</span>
+          <span class="tag funder">Future Climate for Africa</span>
+          <span class="tag role">co-Principal Investigator</span>
+          <span class="project-year">2017&ndash;2019</span>
+        </div>
+        <h3>SCUS-2050: Exploring the Future of the Southern Canary Upwelling System</h3>
+        <p>
+          The southern Canary Upwelling System (SCUS) off Mauritania, Senegal, and Guinea is among the world&rsquo;s most productive oceanic regions and a critical food and livelihood source for West African coastal communities. This project used numerical models and reanalysis data to project future changes to the SCUS under climate change scenarios, providing foundational insights into the vulnerability of marine ecosystems in the region.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════ CV ════════════════ -->
+<section id="cv">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-header-text">
+        <span class="section-label">Curriculum Vitae</span>
+        <h2>CV</h2>
+      </div>
+      <div style="text-align:right;">
+        <a href="files/CV_Dr_Lala_Kounta.pdf" download class="dl-cv-btn">
+          &#8595;&nbsp; Download Full CV
+        </a>
+        <div class="cv-updated">Last updated: March 2026</div>
+      </div>
+    </div>
+
+    <div class="cv-grid">
+
+      <!-- Appointments -->
+      <div class="cv-block">
+        <h3>Academic Appointments</h3>
+        <div class="cv-entry">
+          <div class="cv-year">2024&ndash;now</div>
+          <div><span class="cv-title">Research Associate</span><span class="cv-org">IBEEM, Dept. of Integrative Biology, Michigan State University</span></div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-year">2023&ndash;2024</div>
+          <div><span class="cv-title">Post-doctoral Fellow</span><span class="cv-org">IBEEM, Michigan State University</span></div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-year">2022&ndash;2023</div>
+          <div><span class="cv-title">African Futures Research Leadership Fellow</span><span class="cv-org">Alliance for African Partnership, MSU</span></div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-year">2021&ndash;2022</div>
+          <div><span class="cv-title">Visiting Scientist</span><span class="cv-org">Oceanic Platform of the Canary Islands (PLOCAN), Spain</span></div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-year">2020&ndash;2022</div>
+          <div><span class="cv-title">Lecturer</span><span class="cv-org">Cheikh Anta Diop University &amp; Gaston Berger University, Senegal</span></div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-year">2020&ndash;</div>
+          <div><span class="cv-title">Visiting Scientist</span><span class="cv-org">African Institute of Mathematical Sciences (AIMS), Rwanda</span></div>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="cv-block">
+        <h3>Education</h3>
+        <div class="cv-entry">
+          <div class="cv-year">2019</div>
+          <div>
+            <span class="cv-title">PhD in Environmental Sciences</span>
+            <span class="cv-org">Sorbonne University, Paris, France</span>
+            <span class="cv-title" style="margin-top:0.4rem;">PhD in Physical Oceanography &amp; Climate Sciences</span>
+            <span class="cv-org">Cheikh Anta Diop University, Dakar, Senegal</span>
+          </div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-year">2013</div>
+          <div><span class="cv-title">MS in Meteorology, Oceanography &amp; Land Management</span><span class="cv-org">UCAD, Dakar, Senegal</span></div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-year">2012</div>
+          <div><span class="cv-title">MS in Physics</span><span class="cv-org">UCAD, Dakar, Senegal</span></div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-year">2011</div>
+          <div><span class="cv-title">BS in Physics and Chemistry</span><span class="cv-org">UCAD, Dakar, Senegal</span></div>
+        </div>
+      </div>
+
+      <!-- Grants -->
+      <div class="cv-block">
+        <h3>Awards &amp; Grants</h3>
+        <div class="award-list">
+          <div class="award-item">
+            <div class="award-name"><strong>Environmental Defense Fund</strong> (co-PI) &mdash; 2025&ndash;2026</div>
+            <div class="award-amt">$264,433</div>
+          </div>
+          <div class="award-item">
+            <div class="award-name"><strong>World Academy of Sciences / UNESCO</strong> (PI) &mdash; 2025&ndash;2026</div>
+            <div class="award-amt">$68,390</div>
+          </div>
+          <div class="award-item">
+            <div class="award-name"><strong>IBEEM, MSU</strong> Interdisciplinary Project (co-PI) &mdash; 2022&ndash;2023</div>
+            <div class="award-amt">$75,000</div>
+          </div>
+          <div class="award-item">
+            <div class="award-name"><strong>African Futures Research Leadership Fellowship</strong>, MSU &mdash; 2022&ndash;2023</div>
+            <div class="award-amt">$50,000</div>
+          </div>
+          <div class="award-item">
+            <div class="award-name"><strong>Faculty for the Future Program Fellowship</strong> &mdash; 2022&ndash;2024</div>
+            <div class="award-amt">$60,000</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publications -->
+      <div class="cv-block">
+        <h3>Selected Publications</h3>
+        <ul class="pub-list">
+          <li>
+            <strong>Kounta, L.</strong> et al. (under review). Climate Intervention through Stratospheric Aerosol Injection may partially mitigate marine heatwaves.
+            <a href="https://doi.org/10.22541/essoar.176442822.27571009/v3" target="_blank">Preprint &nearr;</a>
+          </li>
+          <li>
+            Youngflesh, C., Kapsar, K., Uscanga, A., Williams, P.J., Doser, J.W., <strong>Kounta, L.</strong> &amp; Zarnetske, P.L. (2025). Environmental Variability Shapes Life History of the World&rsquo;s Birds. <em>Ecology Letters</em>, 28:e70077.
+            <a href="https://doi.org/10.1111/ele.70077" target="_blank">DOI &nearr;</a>
+          </li>
+          <li>
+            <strong>Kounta, L.</strong>, Capet, X., Jouanno, J., Kolodziejczyk, N., Sow, B., &amp; Gaye, A.T. (2018). A Model Perspective on the Dynamics of the Shadow Zone of the Eastern Tropical North Atlantic. <em>Ocean Science</em>, 14(5), 971&ndash;997.
+            <a href="https://doi.org/10.5194/os-14-971-2018" target="_blank">DOI &nearr;</a>
+          </li>
+          <li>
+            Ndoye, S., Capet, X., Estrade, P., Machu, E., <strong>Kounta, L.</strong> et al. (2018). A Numerical Modeling Study of the Southern Senegal Upwelling Shelf. <em>African Journal of Environmental Science and Technology</em>, 12(12), 487&ndash;500.
+          </li>
+          <li>
+            Hermes, J., Reason, C., <strong>Kounta, L.</strong> et al. (2021). Policy Brief 10: Extremes, Abrupt Changes and Managing Risks.
+            <a href="https://www.researchgate.net/publication/363915007" target="_blank">Link &nearr;</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Teaching -->
+      <div class="cv-block">
+        <h3>Teaching</h3>
+        <div class="cv-entry">
+          <div class="cv-year">2025</div>
+          <div><span class="cv-title">Spatial Ecology (Lab Instructor)</span><span class="cv-org">College of Natural Science, MSU</span></div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-year">2018&ndash;2024</div>
+          <div><span class="cv-title">Probability &amp; Statistics</span><span class="cv-org">Ecole Sup&eacute;rieure Polytechnique / UCAD, Senegal</span></div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-year">2018&ndash;2022</div>
+          <div><span class="cv-title">Physical Oceanography</span><span class="cv-org">Ecole Sup&eacute;rieure Polytechnique / UCAD &amp; Gaston Berger University</span></div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-year">2019&ndash;2022</div>
+          <div><span class="cv-title">Ocean Modelling &amp; Thermodynamics</span><span class="cv-org">IUPA, UCAD; Ecole Sup&eacute;rieure des G&eacute;nies des Proc&eacute;d&eacute;s, Senegal</span></div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-year">2020&ndash;2022</div>
+          <div><span class="cv-title">Coastal Climate &amp; Climate Variability</span><span class="cv-org">Facult&eacute; des Lettres et Sciences Humaines, UCAD</span></div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="cv-block">
+        <h3>Technical Skills</h3>
+        <div class="skills-wrap">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">R</span>
+          <span class="skill-pill">MATLAB</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">CDO</span>
+          <span class="skill-pill">NetCDF</span>
+          <span class="skill-pill">HPC</span>
+          <span class="skill-pill">Cloud Computing</span>
+          <span class="skill-pill">Machine Learning</span>
+          <span class="skill-pill">GIS</span>
+          <span class="skill-pill">Numerical Modeling</span>
+          <span class="skill-pill">Big Data Analysis</span>
+          <span class="skill-pill">Data Visualization</span>
+          <span class="skill-pill">Bias Adjustment</span>
+          <span class="skill-pill">Statistical Downscaling</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    Dr. Lala Kounta &nbsp;&middot;&nbsp;
+    <a href="mailto:kountala@msu.edu">kountala@msu.edu</a> &nbsp;&middot;&nbsp;
+    <a href="https://orcid.org/0000-0002-0239-0212" target="_blank">ORCID</a> &nbsp;&middot;&nbsp;
+    <a href="https://www.linkedin.com/in/lala-kounta" target="_blank">LinkedIn</a>
+  </p>
+  <p>Department of Integrative Biology, Michigan State University &mdash; East Lansing, MI 48824</p>
+</footer>
+
+</body>
+</html>
